@@ -3,30 +3,30 @@
 import { useEffect, useState } from 'react'
 import { useTimer } from '@/context/TimerContext'
 
+// Available videos - organized by theme
+const dayVideos = [
+  '/videos/mars-moewalls-com.mp4',
+  '/videos/classic-console-childhood-gaming-moewalls-com.mp4',
+  '/videos/fantasy-valley-under-swirling-skies-moewalls-com.mp4',
+  '/videos/lofi-girl-autumn-afternoon-moewalls-com.mp4',
+  '/videos/white-tree-sunset-moewalls-com.mp4',
+  '/videos/silhouette-samurai-sunset-moewalls-com.mp4',
+]
+
+const nightVideos = [
+  '/videos/blood-dawn-ghost-of-tsushima-moewalls-com.mp4',
+  '/videos/valorant-homescreen-moewalls-com.mp4',
+  '/videos/a-cozy-lo-fi-night-for-study-moewalls-com.mp4',
+  '/videos/dark-space-planets-moewalls-com.mp4',
+  '/videos/furry-lofi-study-break-moewalls-com.mp4',
+  '/videos/lofi-girl-and-cat-watching-fireworks-moewalls-com.mp4',
+  '/videos/symbiote-spider-man-shattered-dimensions-moewalls-com.mp4',
+]
+
 export default function ParticlesBackground() {
   const { generalSettings } = useTimer()
   const [currentVideo, setCurrentVideo] = useState('')
   const [isLoaded, setIsLoaded] = useState(false)
-
-  // Available videos - organized by theme
-  const dayVideos = [
-    '/videos/mars-moewalls-com.mp4',
-    '/videos/classic-console-childhood-gaming-moewalls-com.mp4',
-    '/videos/fantasy-valley-under-swirling-skies-moewalls-com.mp4',
-    '/videos/lofi-girl-autumn-afternoon-moewalls-com.mp4',
-    '/videos/white-tree-sunset-moewalls-com.mp4',
-    '/videos/silhouette-samurai-sunset-moewalls-com.mp4',
-  ]
-
-  const nightVideos = [
-    '/videos/blood-dawn-ghost-of-tsushima-moewalls-com.mp4',
-    '/videos/valorant-homescreen-moewalls-com.mp4',
-    '/videos/a-cozy-lo-fi-night-for-study-moewalls-com.mp4',
-    '/videos/dark-space-planets-moewalls-com.mp4',
-    '/videos/furry-lofi-study-break-moewalls-com.mp4',
-    '/videos/lofi-girl-and-cat-watching-fireworks-moewalls-com.mp4',
-    '/videos/symbiote-spider-man-shattered-dimensions-moewalls-com.mp4',
-  ]
 
   useEffect(() => {
     const videoBackground = generalSettings?.videoBackground || 'auto'

@@ -248,7 +248,7 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                                     <label className="block text-white font-medium mb-2">Notification Sound</label>
                                     <select
                                         value={localSoundSettings.type}
-                                        onChange={(e) => setLocalSoundSettings({ ...localSoundSettings, type: e.target.value as any })}
+                                        onChange={(e) => setLocalSoundSettings({ ...localSoundSettings, type: e.target.value as 'bell' | 'chime' | 'ding' | 'gong' })}
                                         className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/30 [&>option]:bg-black [&>option]:text-white"
                                     >
                                         <option value="bell">Bell</option>

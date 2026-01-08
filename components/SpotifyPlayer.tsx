@@ -2,12 +2,12 @@
 
 import { useSpotify } from '@/context/SpotifyContext'
 import { useTimer } from '@/context/TimerContext'
-import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { useState } from 'react'
 
 export default function SpotifyPlayer() {
-    const { isConnected, currentTrack, isPlaying, progress, togglePlayback, previousTrack, nextTrack, connectSpotify } = useSpotify()
+    const { isConnected, currentTrack, isPlaying, togglePlayback, previousTrack, nextTrack, connectSpotify } = useSpotify()
     const { generalSettings } = useTimer()
-    const [isMinimized, setIsMinimized] = useState(false)
 
     // Don't show if user disabled Spotify in settings
     if (!generalSettings.showSpotify) {
@@ -40,9 +40,11 @@ export default function SpotifyPlayer() {
             <div className="flex items-center gap-3 px-3 py-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-lg min-w-[380px]">
                 {/* Album Art */}
                 <div className="relative w-14 h-14 rounded overflow-hidden flex-shrink-0">
-                    <img
+                    <Image
                         src={currentTrack.album.images[0]?.url || '/placeholder-album.png'}
                         alt="Album Art"
+                        width={56}
+                        height={56}
                         className="w-full h-full object-cover"
                     />
                 </div>
