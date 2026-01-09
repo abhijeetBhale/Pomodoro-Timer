@@ -3,7 +3,6 @@
 import { useSpotify } from '@/context/SpotifyContext'
 import { useTimer } from '@/context/TimerContext'
 import Image from 'next/image'
-import { useState } from 'react'
 
 export default function SpotifyPlayer() {
     const { isConnected, currentTrack, isPlaying, togglePlayback, previousTrack, nextTrack, connectSpotify } = useSpotify()

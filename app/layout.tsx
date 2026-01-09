@@ -9,7 +9,11 @@ export const metadata: Metadata = {
     description: 'A powerful Pomodoro timer with Spotify integration, dynamic backgrounds, and customizable settings to boost your productivity.',
     keywords: ['pomodoro', 'timer', 'productivity', 'focus', 'spotify', 'time management'],
     authors: [{ name: 'Your Name' }],
-    viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport = {
+    width: 'device-width',
+    initialScale: 1,
 }
 
 export default function RootLayout({
