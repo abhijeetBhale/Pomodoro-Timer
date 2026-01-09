@@ -23,8 +23,10 @@ interface SpotifyContextType {
 
 const SpotifyContext = createContext<SpotifyContextType | undefined>(undefined)
 
-const SPOTIFY_CLIENT_ID = 'YOUR_SPOTIFY_CLIENT_ID' // Users need to add their own
-const SPOTIFY_REDIRECT_URI = typeof window !== 'undefined' ? window.location.origin : ''
+const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID || ''
+const SPOTIFY_REDIRECT_URI = typeof window !== 'undefined'
+    ? (process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI || window.location.origin)
+    : ''
 const SPOTIFY_SCOPES = 'user-read-playback-state user-modify-playback-state user-read-currently-playing'
 
 export function SpotifyProvider({ children }: { children: React.ReactNode }) {

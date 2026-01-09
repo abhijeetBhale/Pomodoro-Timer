@@ -65,24 +65,39 @@ npm run build
 npm start
 ```
 
-## 🎵 Spotify Setup
+## 🎵 Spotify Setup (Optional)
+
+Spotify integration is **optional**. The app works perfectly without it!
+
+### Setup Steps
 
 1. **Create Spotify App**
    - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
    - Create a new app
-   - Add `http://localhost:3000` to Redirect URIs
+   - Add your redirect URIs:
+     - Local: `http://localhost:3000`
+     - Production: `https://your-app.vercel.app`
 
-2. **Add Client ID**
-   - Open `context/SpotifyContext.tsx`
-   - Replace `YOUR_SPOTIFY_CLIENT_ID` with your Client ID:
-   ```typescript
-   const SPOTIFY_CLIENT_ID = 'your_actual_client_id_here'
+2. **Configure Environment Variables**
+   
+   **For Local Development:**
+   - Create `.env.local` in the project root:
+   ```env
+   NEXT_PUBLIC_SPOTIFY_CLIENT_ID=your_client_id_here
    ```
+   
+   **For Vercel Deployment:**
+   - Go to Project Settings → Environment Variables
+   - Add `NEXT_PUBLIC_SPOTIFY_CLIENT_ID` with your Client ID
+   - Redeploy
 
 3. **Connect in App**
-   - Open Settings → General
+   - The Spotify button will appear in the top-right corner
    - Click "Connect Spotify"
    - Authorize the app
+   - Enjoy music controls!
+
+**Note**: See `.env.example` for configuration template.
 
 ## 🎬 Video Backgrounds
 
@@ -258,17 +273,42 @@ npx tsc --noEmit
 
 ## 🚀 Deployment
 
+### ✅ Ready to Deploy!
+
+This project is **fully configured** and ready for Vercel deployment. See our deployment guides:
+
+- **[Quick Start Guide](VERCEL_DEPLOYMENT.md)** - Deploy in 5 minutes
+- **[Comprehensive Guide](DEPLOYMENT_GUIDE.md)** - Detailed instructions with troubleshooting
+
 ### Vercel (Recommended)
 
+**Quick Deploy:**
 1. Push to GitHub
-2. Import project in Vercel
-3. Deploy automatically
-4. Update Spotify Redirect URI to your domain
+2. Import to [Vercel](https://vercel.com/new)
+3. Deploy automatically ✅
+
+**Optional Configuration:**
+- Add `NEXT_PUBLIC_SPOTIFY_CLIENT_ID` for Spotify integration
+- See `.env.example` for reference
+
+### What Works Out of the Box
+
+✅ Full timer functionality
+✅ All settings and customization
+✅ Beautiful gradient backgrounds
+✅ Sound notifications
+✅ Responsive design
+✅ Dark theme
+
+### Optional Features
+
+⚙️ **Spotify Integration**: Requires environment variable (see guides)
+⚙️ **Video Backgrounds**: Requires CDN setup (see guides)
 
 ### Other Platforms
 
-- **Netlify**: `npm run build` → Deploy `./next` folder
-- **Docker**: Create Dockerfile with Node.js base
+- **Netlify**: Auto-detects Next.js
+- **Docker**: Standard Next.js Dockerfile
 - **Self-hosted**: `npm run build && npm start`
 
 ## 📝 Environment Variables

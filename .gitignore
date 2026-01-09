@@ -44,10 +44,12 @@ next-env.d.ts
 Thumbs.db
 desktop.ini
 
-# Videos (large files)
+# Videos (large files - use CDN for production)
+# Note: Videos are excluded due to size limits on Vercel
+# For deployment, use external CDN (Cloudflare R2, AWS S3, etc.)
 public/videos/*.mp4
 public/videos/*.webm
 public/videos/*.mov
-*.mp4
-*.webm
-*.mov
+
+# Allow small demo videos (under 1MB) if needed
+!public/videos/demo-*.mp4

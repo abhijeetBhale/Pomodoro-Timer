@@ -14,6 +14,12 @@ export default function SpotifyPlayer() {
         return null
     }
 
+    // Don't show if Spotify Client ID is not configured
+    const spotifyClientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID
+    if (!spotifyClientId) {
+        return null
+    }
+
     if (!isConnected) {
         // Show connect banner
         return (
